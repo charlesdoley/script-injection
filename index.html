@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Bait</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+        body{
+            background-color: rgba(0,0,0, 0.9);
+            color:white;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+        }
+        .container{
+            margin-top:100px;
+        }
+        .input{
+            border-radius: 4px;
+            border:2px solid white;
+            padding: 10px;
+            width: 500px;
+            margin-right: 10px;
+        }
+       
+        .input:focus{
+            outline: none;
+            border: 2px solid indigo;
+
+        }
+        button{
+            padding: 12px 10px;
+            border-radius: 4px;
+            border: none;
+            font-weight: bold;
+            color:white;
+            background: indigo;
+        }
+        button:focus{
+            outline: none;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Dreams</h1>
+        <form>
+            <input id="query-input" name="query" class="input" type="text">
+            <button type="submit" role="button">Search</button>
+        </form>
+        <h3>You Queried :</h3>
+        <span id="query-output"></span>
+    </div>
+    <script>
+            document.cookie = "username=me@me.com";
+            document.cookie = "password=super_safe_password";
+            if (document.readyState == 'loading') {
+                document.addEventListener('DOMContentLoaded', ready)
+            } else {
+                ready()
+            }
+
+            function ready() {
+                var query = new URL(window.location).searchParams.get('query')
+                document.getElementById('query-input').value = query;
+                // if only required use innerHTML otherwise use innerText
+                document.getElementById('query-output').innerHTML = query;
+            }
+    </script>
+</body>
+</html>
